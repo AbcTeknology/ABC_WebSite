@@ -1,0 +1,18 @@
+# Normalise line endings so the repository always stores LF, regardless of the
+# platform a commit was made on. Without this, work from Windows and from the
+# Linux host produce whole-file diffs against each other.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+
+# Collapse lockfile noise in pull request diffs.
+package-lock.json linguist-generated=true -diff
