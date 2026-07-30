@@ -1,6 +1,5 @@
 export const company = {
   legalName: "ABC Teknology",
-  tagline: "Research. Build. Empower.",
   productName: "ABC AI",
   country: "United Arab Emirates",
   copyrightHolder: "ABC Teknology",

@@ -6,6 +6,7 @@ import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { chrome } from "@/content/copy";
 import { company } from "@/content/site";
 import { SITE_URL } from "@/lib/env";
@@ -34,15 +35,16 @@ export default function RootLayout({
   readonly children: ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
-        <SkipLink />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <SkipLink />
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+        </ThemeProvider>
         <script
           type="application/ld+json"
-
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema()),
           }}

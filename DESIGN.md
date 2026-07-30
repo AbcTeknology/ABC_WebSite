@@ -132,7 +132,7 @@ editors, terminals, robots or abstract AI imagery.
 - Square-ish geometry (6 to 14px) rather than pills
 - Hairline borders doing the work shadows would do elsewhere
 - One typeface, hierarchy from weight and size
-- A 1180px rail every element aligns to
+- A 1320px rail every element aligns to
 - Evidence over adjectives
 
 ## Colors
@@ -171,6 +171,42 @@ text and rules.
 - **Rule** (`#D0D5DD`): borders on inputs and interactive edges.
 - **Hairline** (`#EAECF0`): the standard divider and card border.
 - **Tint** (`#F2F4F7`): table header rows and inert chips.
+
+### Named Rules
+
+### Dark theme
+
+The brief pinned a light palette only, so these dark values were derived and
+every pair was verified rather than eyeballed. All 14 foreground/background
+pairs clear WCAG AA in both themes.
+
+| Semantic role | Light | Dark |
+| --- | --- | --- |
+| `surface` (page and cards) | `#FFFFFF` | `#0D2450` |
+| `blue-50` (card fill) | `#F5F8FF` | `#123063` |
+| `blue-100` (wash) | `#EAF1FF` | `#123063` |
+| `blue-700` (links, accents) | `#1746A2` | `#8FB4F0` |
+| `hairline` | `#EAECF0` | `#24406F` |
+| `rule` | `#D0D5DD` | `#2E4C7E` |
+| `ink` | `#101828` | `#EAF1FF` |
+| `graphite` | `#344054` | `#C7D8F5` |
+| `slate` | `#475467` | `#9FB6DA` |
+| `heading` | `#0A2458` | `#EAF1FF` |
+| `btn` (primary fill) | `#0A2458` | `#2258C7` |
+| `band` (early-access field) | `#0A2458` | `#1A3A78` |
+| `footer` | `#071A3D` | `#04101F` |
+| `danger` | `#B42318` | `#FF9B93` |
+
+Two structural notes:
+
+**Navy cannot simply invert.** `navy-900` served as both heading text and button
+fill in light mode; those need opposite treatment in dark. So semantics were
+split from the palette: `heading` and `btn` are separate tokens, and the raw
+`navy-*` values stay fixed for surfaces that are dark in both themes.
+
+**`band` is lighter than `card` in dark.** At first both landed on `#123063`,
+which made the early-access field indistinguishable from a card and broke The
+Navy Signature Rule. The band is now `#1A3A78`.
 
 ### Named Rules
 
@@ -225,21 +261,28 @@ never as a costume for "technical".
 
 There are exactly two exceptions, and both are depictions rather than text:
 
-1. The phone mockup, which draws a phone screen at phone scale and is
-   `aria-hidden` because the same figures appear at full size in the
-   demonstration table beside it.
+1. The phone mockup, which draws a phone screen at phone scale. Its type is
+   small because a phone's type is small: the mockup is a depiction of a screen,
+   not page text. Every figure it shows also appears at full size in **ABC AI in
+   Action**, so nothing is only legible inside the phone. Its interactive
+   controls are exempt from the floor but not from the target size and contrast
+   rules: each stepper is a 24px circle inside a 44px row, labelled for screen
+   readers, with a border that clears 3:1 against its card. Each stepper is
+   24 × 24px, which is the SC 2.5.8 minimum rather than the 44px this system uses
+   for page controls: inside a depiction of a phone, a 44px control would be the
+   wrong size for the thing being depicted.
 2. The wordmark tagline, which is brand ornament sitting under a 19px name and
    carries no information.
 
 Anything else below 15px is a bug.
 
-**The Measure Rule.** Body copy never exceeds 72 characters. The 1180px rail
+**The Measure Rule.** Body copy never exceeds 72 characters. The 1320px rail
 sizes layout; a paragraph is capped independently and left-aligned on the rail.
 
 ## Layout
 
-A single centred rail of **1180px** maximum width, with gutters of 20px on
-mobile, 24px on tablet and 32px on desktop. Every heading, paragraph and card
+A single centred rail of **1320px** maximum width, with gutters of 20px on
+mobile, 24px on tablet and 40px on desktop. Every heading, paragraph and card
 column starts on that rail: there is exactly one left edge per page, and text
 measure is constrained inside the rail rather than by narrowing the container.
 
@@ -249,7 +292,7 @@ alone separates them. Paper Blue survives only as a card fill, where a card must
 step away from the white ground it sits on.
 
 Breakpoints: mobile below 640px, tablet 640 to 1023px, desktop 1024px and above.
-The rail stops growing at 1180px, so a 2560px monitor shows wider margins rather
+The rail stops growing at 1320px, so a 2560px monitor shows wider margins rather
 than wider text.
 
 Grids collapse predictably: four-column card rows go to two on tablet and one on
@@ -343,7 +386,7 @@ alone.** Every figure in it is illustrative and the block carries a visible
 - **Do** keep white as the dominant ground and treat every coloured field as an
   event.
 - **Do** use Slate (`#475467`) for secondary text on every background.
-- **Do** align every element to the single 1180px rail, and cap paragraphs at 72
+- **Do** align every element to the single 1320px rail, and cap paragraphs at 72
   characters inside it.
 - **Do** give each shadow a real offset and blur.
 - **Do** mark the winning price with fill, value colour and a text label

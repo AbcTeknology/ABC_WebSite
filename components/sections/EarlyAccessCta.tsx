@@ -43,14 +43,14 @@ export function EarlyAccessCta() {
             <SectionHeading id="cta-heading" tone="onNavy">
               {earlyAccess.heading}
             </SectionHeading>
-            <p className="mt-4 max-w-[36rem] text-[1.0625rem] text-pretty text-blue-100">
+            <p className="text-onnavy mt-4 max-w-[36rem] text-[1.0625rem] text-pretty">
               {earlyAccess.body}
             </p>
           </div>
           <form onSubmit={handleSubmit} noValidate>
             <label
               htmlFor={inputId}
-              className="block text-[0.9375rem] font-semibold text-blue-100"
+              className="text-onnavy block text-[0.9375rem] font-semibold"
             >
               {earlyAccess.emailLabel}
             </label>
@@ -70,13 +70,13 @@ export function EarlyAccessCta() {
                 aria-invalid={error ? true : undefined}
                 aria-describedby={error ? errorId : noteId}
                 className={cn(
-                  "text-ink placeholder:text-slate min-h-11 w-full rounded-sm bg-white px-4 py-[13px] text-[0.9375rem] focus-visible:outline-offset-4",
+                  "min-h-11 w-full rounded-sm bg-white px-4 py-[13px] text-[0.9375rem] text-[#101828] placeholder:text-[#667085] focus-visible:outline-offset-4",
                   error ? "border-danger border-2" : "border border-white/25",
                 )}
               />
               <button
                 type="submit"
-                className="text-navy-900 inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-white px-[22px] py-[13px] text-[0.9375rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-blue-50 focus-visible:outline-offset-4"
+                className="text-navy-900 inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-white px-[22px] py-[13px] text-[0.9375rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-[#eaf1ff] focus-visible:outline-offset-4"
               >
                 {earlyAccess.submit}
                 <ArrowRight aria-hidden="true" className="size-4" />
@@ -86,7 +86,7 @@ export function EarlyAccessCta() {
               <p
                 id={errorId}
                 role="alert"
-                className="text-danger mt-2 inline-flex items-start gap-2 rounded-sm bg-white px-3 py-2 text-[0.9375rem] font-semibold"
+                className="mt-2 inline-flex items-start gap-2 rounded-sm bg-white px-3 py-2 text-[0.9375rem] font-semibold text-[#b42318]"
               >
                 <AlertCircle
                   aria-hidden="true"
@@ -95,7 +95,7 @@ export function EarlyAccessCta() {
                 {error}
               </p>
             ) : (
-              <p id={noteId} className="mt-2 text-[0.9375rem] text-blue-100">
+              <p id={noteId} className="text-onnavy mt-2 text-[0.9375rem]">
                 {earlyAccess.mailtoNote}
               </p>
             )}

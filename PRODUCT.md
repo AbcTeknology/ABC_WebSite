@@ -99,17 +99,28 @@ Available:
   screenshots
 - Real product copy and legal documents in `content/`
 
-Owned by the user but **not yet in the repository**, so the build must use
-correctly sized placeholders until they land:
+In the repository and rendering:
 
-- Kitchen photograph of a shopper with her phone and a bag of groceries,
-  1200 x 1500 (4:5). Confirmed as the hero visual, framed rather than a cutout,
-  with the app mockup overlapping its lower-left corner as her screen.
-- UAE skyline photograph, wide landscape 16:9. A tall 9:16 version also exists
-  and is deliberately unused: the section places the skyline beside the text.
-- A grocery-bag cutout on white (2:3) and a shield-and-padlock security image
-  (4:3) were both supplied and are deliberately unused. The shield conflicts with
-  the design system's rejection of glow, neon and abstract technology imagery.
+- `public/media/hero-kitchen.jpg` (1200 x 1500, 4:5): a shopper with her phone
+  and a bag of groceries. The hero visual, framed rather than a cutout, with the
+  app mockup overlapping its lower-left corner as her screen.
+- `public/media/uae-skyline.jpg` (1600 x 900, 16:9): supporting context beside
+  the Built for the UAE copy.
+- `public/media/retailers/*.png`: the four retailer marks.
+
+Supplied and deliberately unused, with reasons, so they are not reintroduced:
+
+- A tall 9:16 skyline. That section places the skyline beside the text, not
+  above it.
+- A grocery-bag cutout on white (2:3). Superseded by the kitchen photograph.
+- A shield-and-padlock security image. Conflicts with the design system's
+  rejection of glow, neon and abstract technology imagery.
+- **AI-generated imitations of the four retailer wordmarks.** An inaccurate
+  reproduction of a trademark carries more exposure than the real asset, and
+  each sits on a grey gradient that cannot go on a white strip.
+
+Still absent: **no product photography.** The mockup's product rail draws each
+item instead, so nothing is blocked.
 
 Retailer logo files are present, sourced from the sibling `abc-landing` project.
 

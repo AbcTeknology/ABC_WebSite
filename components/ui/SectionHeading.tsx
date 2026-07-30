@@ -22,7 +22,7 @@ export function SectionHeading({
         id={id}
         className={cn(
           "text-3xl leading-[1.12] font-bold tracking-[-0.02em] text-balance md:text-4xl lg:text-[2.625rem]",
-          tone === "onNavy" ? "text-white" : "text-navy-900",
+          tone === "onNavy" ? "text-white" : "text-heading",
         )}
       >
         {children}
@@ -31,7 +31,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-3 text-[1.0625rem] font-semibold",
-            tone === "onNavy" ? "text-blue-100" : "text-blue-700",
+            tone === "onNavy" ? "text-onnavy" : "text-blue-700",
           )}
         >
           {subheading}

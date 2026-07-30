@@ -6,6 +6,7 @@ import { chrome } from "@/content/copy";
 import { company, earlyAccessEmail, navLinks } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { ThemeToggle } from "./ThemeToggle";
 import { Wordmark } from "./Wordmark";
 import { cn } from "@/lib/cn";
 
@@ -21,7 +22,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white",
+        "bg-surface sticky top-0 z-50",
         scrolled && "border-hairline border-b",
       )}
     >
@@ -31,7 +32,7 @@ export function Header() {
           className="flex h-16 items-center gap-3 lg:h-[72px] lg:gap-6"
         >
           <a href="#top" className="min-w-0 shrink rounded-sm">
-            <Wordmark showTagline />
+            <Wordmark />
             <span className="sr-only">{company.legalName}, back to top</span>
           </a>
           <ul className="ml-auto hidden items-center gap-1 lg:flex">
@@ -39,7 +40,7 @@ export function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-slate hover:text-navy-900 rounded-sm px-3 py-2 text-[0.9375rem] font-semibold transition-colors hover:bg-blue-50"
+                  className="text-slate hover:text-heading rounded-sm px-2.5 py-2 text-[0.9375rem] font-semibold whitespace-nowrap transition-colors hover:bg-blue-50"
                 >
                   {link.label}
                 </a>
@@ -47,6 +48,7 @@ export function Header() {
             ))}
           </ul>
           <div className="ml-auto flex items-center gap-2 lg:ml-0">
+            <ThemeToggle />
             <span className="hidden sm:block">
               <ButtonLink
                 href={`mailto:${earlyAccessEmail}?subject=ABC%20AI%20early%20access`}
@@ -61,7 +63,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? chrome.menuClose : chrome.menuOpen}
-              className="border-rule text-navy-900 inline-flex size-11 items-center justify-center rounded-sm border lg:hidden"
+              className="border-rule text-heading inline-flex size-11 items-center justify-center rounded-sm border lg:hidden"
             >
               {open ? (
                 <X aria-hidden="true" className="size-5" />
@@ -81,7 +83,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-graphite hover:text-navy-900 block rounded-sm px-1 py-3 text-[0.9375rem] font-semibold"
+                    className="text-graphite hover:text-heading block rounded-sm px-1 py-3 text-[0.9375rem] font-semibold"
                   >
                     {link.label}
                   </a>

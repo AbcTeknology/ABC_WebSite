@@ -6,10 +6,10 @@ const logos: Record<
   string,
   { readonly width: number; readonly height: number; readonly display: number }
 > = {
-  Amazon: { width: 500, height: 281, display: 30 },
-  Noon: { width: 1288, height: 525, display: 26 },
-  Carrefour: { width: 1336, height: 264, display: 20 },
-  Talabat: { width: 3840, height: 812, display: 19 },
+  Amazon: { width: 500, height: 281, display: 46 },
+  Noon: { width: 1288, height: 525, display: 40 },
+  Carrefour: { width: 1336, height: 264, display: 31 },
+  Talabat: { width: 3840, height: 812, display: 29 },
 };
 
 type RetailerLogoProps = {
@@ -27,7 +27,7 @@ export function RetailerLogo({ name }: RetailerLogoProps) {
 
   if (!exists || !meta) {
     return (
-      <span className="text-navy-900 text-lg font-bold tracking-[-0.02em] sm:text-xl">
+      <span className="text-heading text-lg font-bold tracking-[-0.02em] sm:text-xl">
         {name}
       </span>
     );

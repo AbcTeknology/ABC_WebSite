@@ -8,10 +8,10 @@ export function RetailerStrip() {
   return (
     <Section spacing="tight">
       <Container>
-        <p className="text-slate text-center text-[0.9375rem] font-semibold">
+        <p className="text-slate text-center text-[1.0625rem] font-semibold">
           {retailerStrip.caption}
         </p>
-        <div className="marquee mt-6">
+        <div className="marquee mt-8">
           <div className="marquee-track">
             {[0, 1].map((pass) => (
               <ul
@@ -22,9 +22,11 @@ export function RetailerStrip() {
                 {retailers.map((name) => (
                   <li
                     key={`${pass}-${name}`}
-                    className="flex w-[clamp(9rem,22vw,15rem)] shrink-0 items-center justify-center"
+                    className="flex w-[clamp(13rem,24vw,17rem)] shrink-0 items-center justify-center"
                   >
-                    <RetailerLogo name={name} />
+                    <span className="flex h-[4.75rem] w-[11.5rem] items-center justify-center rounded-md bg-white px-4">
+                      <RetailerLogo name={name} />
+                    </span>
                   </li>
                 ))}
               </ul>

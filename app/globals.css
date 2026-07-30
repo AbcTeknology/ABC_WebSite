@@ -1,47 +1,124 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --surface: #ffffff;
+  --blue-50: #f5f8ff;
+  --blue-100: #eaf1ff;
+  --blue-700: #1746a2;
+  --hairline: #eaecf0;
+  --rule: #d0d5dd;
+  --tint: #f2f4f7;
+  --ink: #101828;
+  --graphite: #344054;
+  --slate: #475467;
+  --mist: #667085;
+  --heading: #0a2458;
+  --btn: #0a2458;
+  --btn-hover: #071a3d;
+  --band: #0a2458;
+  --footer: #071a3d;
+  --focus: #2258c7;
+  --danger: #b42318;
+
+  --app-screen: #ffffff;
+  --app-surface: #f7f9ff;
+  --app-surface-2: #eaf1ff;
+  --app-border: #dae3f5;
+  --app-text: #0a2458;
+  --app-muted: #596d94;
+  --app-accent: #1746a2;
+  --app-bubble: #eaf1ff;
+  --app-bubble-2: #c6d8f8;
+}
+
+.dark {
+  --surface: #0d2450;
+  --blue-50: #123063;
+  --blue-100: #123063;
+  --blue-700: #8fb4f0;
+  --hairline: #24406f;
+  --rule: #2e4c7e;
+  --tint: #123063;
+  --ink: #eaf1ff;
+  --graphite: #c7d8f5;
+  --slate: #9fb6da;
+  --mist: #6e88b5;
+  --heading: #eaf1ff;
+  --btn: #2258c7;
+  --btn-hover: #3468d6;
+  --band: #1a3a78;
+  --footer: #04101f;
+  --focus: #8fb4f0;
+  --danger: #ff9b93;
+
+  --app-screen: #08142c;
+  --app-surface: #11224a;
+  --app-surface-2: #172c5a;
+  --app-border: #27406e;
+  --app-text: #eaf1ff;
+  --app-muted: #92a8cd;
+  --app-accent: #8fb4f0;
+  --app-bubble: #16315f;
+  --app-bubble-2: #2a4a80;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-blue-50: var(--blue-50);
+  --color-blue-100: var(--blue-100);
+  --color-blue-700: var(--blue-700);
+  --color-hairline: var(--hairline);
+  --color-rule: var(--rule);
+  --color-tint: var(--tint);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-slate: var(--slate);
+  --color-mist: var(--mist);
+  --color-heading: var(--heading);
+  --color-btn: var(--btn);
+  --color-btn-hover: var(--btn-hover);
+  --color-band: var(--band);
+  --color-footer: var(--footer);
+  --color-danger: var(--danger);
+  --color-app-screen: var(--app-screen);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-2: var(--app-surface-2);
+  --color-app-border: var(--app-border);
+  --color-app-text: var(--app-text);
+  --color-app-muted: var(--app-muted);
+  --color-app-accent: var(--app-accent);
+  --color-app-bubble: var(--app-bubble);
+  --color-app-bubble-2: var(--app-bubble-2);
+}
+
 @theme {
-  --color-navy-950: #071a3d;
   --color-navy-900: #0a2458;
-  --color-blue-700: #1746a2;
+  --color-navy-950: #071a3d;
   --color-blue-600: #2258c7;
-  --color-blue-100: #eaf1ff;
-  --color-blue-50: #f5f8ff;
-
-  --color-ink: #101828;
-  --color-graphite: #344054;
-
-  --color-slate: #475467;
-  --color-mist: #667085;
-  --color-rule: #d0d5dd;
-  --color-hairline: #eaecf0;
-  --color-tint: #f2f4f7;
-
-  --color-danger: #b42318;
+  --color-onnavy: #eaf1ff;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-
-  --container-rail: 1180px;
-
-  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04);
-  --shadow-raised: 0 8px 24px -6px rgba(7, 26, 61, 0.14);
-
-  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
   scroll-behavior: smooth;
-
   scroll-padding-top: 5.5rem;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
-  background-color: #ffffff;
-  color: var(--color-ink);
+  background-color: var(--surface);
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
@@ -50,7 +127,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-blue-600);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -114,6 +191,31 @@ img {
   }
 }
 
+.screen {
+  scrollbar-width: none;
+}
+
+.screen::-webkit-scrollbar {
+  display: none;
+}
+
+.rail {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rail > * {
+  scroll-snap-align: start;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -126,7 +228,7 @@ img {
 }
 
 .rise {
-  animation: rise 0.62s var(--ease-out-soft) both;
+  animation: rise 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

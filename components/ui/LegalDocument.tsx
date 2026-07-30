@@ -17,7 +17,7 @@ export function LegalDocument({
   return (
     <Container className="pt-14 pb-20 lg:pt-20">
       <Prose>
-        <h1 className="text-navy-900 text-4xl font-bold tracking-[-0.02em] text-balance lg:text-5xl">
+        <h1 className="text-heading text-4xl font-bold tracking-[-0.02em] text-balance lg:text-5xl">
           {headline}
         </h1>
         <p className="text-slate mt-4 text-[0.9375rem]">{lastUpdated}</p>
@@ -25,7 +25,7 @@ export function LegalDocument({
         <div className="mt-12 space-y-10">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-navy-900 text-xl font-semibold tracking-[-0.01em]">
+              <h2 className="text-heading text-xl font-semibold tracking-[-0.01em]">
                 {section.title}
               </h2>
               <p className="text-slate mt-3 text-pretty">{section.body}</p>

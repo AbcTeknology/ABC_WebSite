@@ -44,7 +44,7 @@ export function VisionSection() {
                       />
                     ) : null}
                   </IconFrame>
-                  <h3 className="text-navy-900 mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
+                  <h3 className="text-heading mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
                     {value.title}
                   </h3>
                   <p className="text-slate mt-2 text-[0.9375rem] text-pretty">

@@ -38,7 +38,7 @@ export function BuiltForUae() {
                       ) : null}
                     </IconFrame>
                     <span>
-                      <span className="text-navy-900 block text-[0.9375rem] font-semibold">
+                      <span className="text-heading block text-[0.9375rem] font-semibold">
                         {point.title}
                       </span>
                       <span className="text-slate block text-[0.9375rem]">

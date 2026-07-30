@@ -16,8 +16,8 @@ const spacings = {
 } as const;
 
 const tones = {
-  white: "bg-white",
-  navy: "on-navy bg-navy-900 text-white",
+  white: "bg-surface",
+  navy: "on-navy bg-band text-white",
 } as const;
 
 export function Section({

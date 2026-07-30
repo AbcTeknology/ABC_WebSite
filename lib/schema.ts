@@ -12,7 +12,6 @@ export function organizationSchema() {
         "@id": `${SITE_URL}/#organization`,
         name: company.legalName,
         url: SITE_URL,
-        slogan: company.tagline,
         description: chrome.footerBlurb,
         logo: `${SITE_URL}/brand/logo.png`,
         address: {

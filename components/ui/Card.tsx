@@ -18,7 +18,7 @@ export function Card({
     <Tag
       className={cn(
         "border-hairline rounded-md border p-6 shadow-[0_1px_2px_rgba(16,24,40,0.04)]",
-        on === "white" ? "bg-blue-50" : "bg-white",
+        on === "white" ? "bg-blue-50" : "bg-surface",
         className,
       )}
     >
@@ -36,7 +36,7 @@ export function IconFrame({ children, className }: IconFrameProps) {
   return (
     <span
       className={cn(
-        "border-hairline inline-flex size-10 shrink-0 items-center justify-center rounded-sm border bg-white text-blue-700",
+        "border-hairline bg-surface inline-flex size-10 shrink-0 items-center justify-center rounded-sm border text-blue-700",
         className,
       )}
     >

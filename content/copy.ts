@@ -11,6 +11,7 @@ export type Offering = {
 
 export type Step = {
   readonly title: string;
+  readonly status: string;
   readonly body: string;
 };
 
@@ -52,7 +53,7 @@ export const vision = {
     },
     {
       title: "Responsible Innovation",
-      body: "We use AI where it improves understanding and decision-making, while using deterministic software for calculations and critical logic.",
+      body: "We use AI where it genuinely helps a shopper decide, and we do not let it anywhere near the money.",
     },
     {
       title: "Local Impact",
@@ -64,7 +65,7 @@ export const vision = {
 export const offerings = {
   heading: "What We Offer",
   intro:
-    "ABC Teknology builds systems that transform scattered commerce data into clear decisions.",
+    "One company, one focus: turning scattered retail pricing into a decision you can act on in seconds.",
   items: [
     {
       icon: "MessageSquare",
@@ -73,18 +74,18 @@ export const offerings = {
     },
     {
       icon: "Scale",
-      title: "Retail Price Intelligence",
-      body: "A structured data layer that reads current listings, normalizes pack sizes and calculates comparable unit prices.",
+      title: "Honest Price Comparison",
+      body: "The same product is sold in different pack sizes at every retailer. We put every option on one basis, so a 900g pack and a 1kg pack can finally be compared.",
     },
     {
-      icon: "Workflow",
-      title: "Conversational AI Systems",
-      body: "Multi-stage AI workflows designed to understand intent, validate results and communicate verified answers clearly.",
+      icon: "Target",
+      title: "Answers You Can Act On",
+      body: "One clear recommendation per item instead of a page of search results, with the reason it won shown alongside it.",
     },
     {
       icon: "Send",
-      title: "Messaging Experiences",
-      body: "The same shopping assistance can be delivered through mobile and messaging channels such as WhatsApp.",
+      title: "Wherever You Already Are",
+      body: "The same assistant works in the app or over WhatsApp, for shoppers who would rather send a list than open anything.",
     },
   ] as const satisfies readonly Offering[],
 } as const;
@@ -92,27 +93,32 @@ export const offerings = {
 export const howItWorks = {
   heading: "How ABC AI Works",
   intro:
-    "ABC AI uses a structured pipeline rather than relying on one unrestricted AI prompt.",
+    "One shopping list in, one basket out. This is what happens in between, and why the answer holds up.",
   steps: [
     {
-      title: "Classify",
-      body: "Understand what the shopper requested, including products, quantities and basket changes.",
+      title: "You send your list",
+      status: "Reading your list",
+      body: "Write it the way you would text a friend. The whole list at once, in your own words, with no forms or filters to fill in.",
     },
     {
-      title: "Search",
-      body: "Search enabled retailers in parallel for relevant listings.",
+      title: "Every store at once",
+      status: "Checking four stores",
+      body: "Amazon, Noon, Carrefour and Talabat are all checked together rather than one after another, so you are not waiting on four searches.",
     },
     {
-      title: "Validate",
-      body: "Confirm that each result matches the shopper's intended product.",
+      title: "Only the right product",
+      status: "Matching products",
+      body: "Orange juice is not oranges, and a blender is not a smoothie. Anything that is not what you asked for is dropped before price is considered.",
     },
     {
-      title: "Rank",
-      body: "Compare qualified listings using unit price and relevant delivery information.",
+      title: "Compared on one basis",
+      status: "Comparing unit prices",
+      body: "Pack sizes never line up between retailers, so every option is priced per kilo, litre or piece. That is the only way the cheapest option is really the cheapest.",
     },
     {
-      title: "Respond",
-      body: "Present the strongest options and direct the shopper to the retailer.",
+      title: "One basket, one total",
+      status: "Building your basket",
+      body: "The best value for each item, added up in dirhams, with a link out to the retailer when you are ready to buy.",
     },
   ] as const satisfies readonly Step[],
 } as const;
@@ -121,15 +127,15 @@ export const demo = {
   heading: "ABC AI in Action",
   intro:
     "From a plain shopping request to a best-value basket, with the comparison shown rather than asserted.",
-  exampleNotice:
-    "Illustrative example. Figures shown are for demonstration and are not measured prices.",
+  exampleNotice: "Figures are an example, not measured prices.",
   request: "Find 2 litres of milk, basmati rice, 12 eggs and chicken breast.",
+  runProgress: "Working through the request",
+  runDone: "Comparison complete",
   stages: {
     ask: "You ask",
     compare: "We compare",
     basket: "Best-value basket",
   },
-  thinking: "Understanding your request",
   rows: [
     {
       item: "Milk",
@@ -181,9 +187,9 @@ export const demo = {
     },
   ],
   basketLabel: "Total",
-  basketAction: "View at stores",
   bestLabel: "lowest",
-  unitHint: "Pack size and price per unit shown beneath each figure.",
+  unitHint:
+    "Each bar is the price per unit, so the shortest bar is the best value. It is not always the lowest shelf price: the cheapest bottle of milk here is the 1L at 4.60, but the 2L works out cheaper per litre.",
 } as const;
 
 export const uae = {
@@ -210,25 +216,25 @@ export const uae = {
 } as const;
 
 export const technology = {
-  heading: "Technology You Can Trust",
+  heading: "Why the Price Can Be Trusted",
   intro:
-    "ABC Teknology combines language models with deterministic software to produce more reliable shopping comparisons.",
+    "A comparison is only worth having if the number is right. Most of our work goes into that, not into the part you can see.",
   pillars: [
     {
-      title: "Language models for understanding",
-      body: "Used to interpret natural language and validate whether product listings match a request.",
+      title: "Read, not estimated",
+      body: "Every figure comes from what the retailer is listing. Nothing is guessed at or filled in from an average.",
     },
     {
-      title: "Software for calculations",
-      body: "Unit prices, totals and basket calculations are performed by code using stored values.",
+      title: "Counted, not approximated",
+      body: "Unit prices and basket totals are worked out properly. A total is an answer, not a rough idea.",
     },
     {
-      title: "Structured agent workflow",
-      body: "Classification, retrieval, validation, ranking and response generation remain separate stages.",
+      title: "Wrong matches removed first",
+      body: "A cheap result that is not the product you asked for is worse than no result. Those are taken out before anything is ranked.",
     },
     {
-      title: "Resilient infrastructure",
-      body: "External services use retry and fallback logic where appropriate.",
+      title: "Checked again, because prices move",
+      body: "Listings, stock and delivery windows change constantly, and they are not the same across the seven emirates. We keep re-checking rather than trusting yesterday's figure.",
     },
   ] as const satisfies readonly Value[],
 } as const;
@@ -273,6 +279,7 @@ export const chrome = {
   menuOpen: "Open menu",
   menuClose: "Close menu",
   headerCta: "Get Early Access",
+  themeToggle: "Toggle light and dark theme",
   backToTop: "back to top",
   demoItemHeader: "Item",
   footerBlurb:

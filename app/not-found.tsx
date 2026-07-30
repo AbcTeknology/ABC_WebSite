@@ -7,7 +7,7 @@ export default function NotFound() {
     <Container className="py-24 lg:py-32">
       <Prose>
         <p className="text-[0.9375rem] font-bold text-blue-700">404</p>
-        <h1 className="text-navy-900 mt-3 text-4xl font-bold tracking-[-0.02em] text-balance">
+        <h1 className="text-heading mt-3 text-4xl font-bold tracking-[-0.02em] text-balance">
           {chrome.notFound.headline}
         </h1>
         <p className="text-slate mt-4 text-pretty">{chrome.notFound.body}</p>

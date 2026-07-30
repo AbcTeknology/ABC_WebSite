@@ -1,4 +1,4 @@
-import { Braces, Calculator, Layers, ShieldCheck } from "lucide-react";
+import { Calculator, Filter, RefreshCw, Tag } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { technology } from "@/content/copy";
 import { Container, Prose } from "@/components/ui/Container";
@@ -6,12 +6,7 @@ import { IconFrame } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const pillarIcons: readonly LucideIcon[] = [
-  Braces,
-  Calculator,
-  Layers,
-  ShieldCheck,
-];
+const pillarIcons: readonly LucideIcon[] = [Tag, Calculator, Filter, RefreshCw];
 
 export function TechnologySection() {
   return (
@@ -40,7 +35,7 @@ export function TechnologySection() {
                       />
                     ) : null}
                   </IconFrame>
-                  <h3 className="text-navy-900 mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
+                  <h3 className="text-heading mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
                     {pillar.title}
                   </h3>
                   <p className="text-slate mt-2 text-[0.9375rem] text-pretty">

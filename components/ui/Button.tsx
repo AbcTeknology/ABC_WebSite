@@ -7,9 +7,9 @@ const base =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-sm px-[22px] py-[13px] text-[0.9375rem] font-semibold whitespace-nowrap transition-colors duration-200";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-navy-900 text-white hover:bg-navy-950",
-  secondary: "bg-white text-navy-900 border border-rule hover:bg-blue-50",
-  onNavy: "bg-white text-navy-900 hover:bg-blue-50",
+  primary: "bg-btn text-white hover:bg-btn-hover",
+  secondary: "bg-surface text-heading border border-rule hover:bg-blue-50",
+  onNavy: "bg-white text-navy-900 hover:bg-[#eaf1ff]",
 };
 
 type ButtonLinkProps = {

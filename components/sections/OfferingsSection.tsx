@@ -1,4 +1,4 @@
-import { MessageSquare, Scale, Send, Workflow } from "lucide-react";
+import { MessageSquare, Scale, Send, Target } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { offerings } from "@/content/copy";
 import { Card, IconFrame } from "@/components/ui/Card";
@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const icons: Record<string, LucideIcon> = {
   MessageSquare,
   Scale,
-  Workflow,
+  Target,
   Send,
 };
 
@@ -39,7 +39,7 @@ export function OfferingsSection() {
                     />
                   ) : null}
                 </IconFrame>
-                <h3 className="text-navy-900 mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
+                <h3 className="text-heading mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em]">
                   {item.title}
                 </h3>
                 <p className="text-slate mt-2 text-[0.9375rem] text-pretty">

@@ -1,40 +1,70 @@
 # Assets
 
-Two images are still placeholders. **I can see images pasted into chat but cannot
-write their bytes to disk**, so these have to be saved by hand. That is why the
-hero shows a dashed box: the PNG is not failing to load, the file does not exist
-yet.
+Every image the site needs is now on disk. This file records what each slot
+expects, so a future swap does not have to be reverse-engineered from the code.
 
-Save each file at the exact path below and run `npm run build`. Nothing else
-changes: [ImagePlaceholder](components/ui/ImagePlaceholder.tsx) checks for the
-file at build time and swaps the real image in automatically. The placeholder
-already reserves the final aspect ratio, so the layout will not shift.
+[ImagePlaceholder](components/ui/ImagePlaceholder.tsx) checks for each file at
+build time. If one is ever deleted, the slot degrades to a dashed box at the
+right aspect ratio instead of a broken image, and the layout does not shift.
 
-## Still needed
+## Photographs in place
 
-| Path | Aspect | Save at | Format | Used in |
-| --- | --- | --- | --- | --- |
-| `public/media/hero-kitchen.jpg` | **4:5** portrait | 1200 × 1500 | JPG or WebP | Hero, right side |
-| `public/media/uae-skyline.jpg` | **16:9** landscape | 1600 × 900 | JPG or WebP | Built for the UAE |
-
-### hero-kitchen.jpg
-
-The kitchen photograph: a shopper with her phone and a bag of groceries.
-
-The slot is 4:5 and uses `object-cover`, so a source a little off 4:5 still fills
-correctly without distortion. Save at 1200 × 1500 to match the declared
-dimensions exactly and avoid a layout shift as it loads.
-
-It is treated as `framed`: cropped to fill a rounded panel. That is correct for a
-photograph with its own background. The ABC AI phone mockup overlaps its
-lower-left corner so it reads as the screen she is looking at, and it carries a
-visible "illustrative example" label because it shows prices and a total.
+| Path | Aspect | Size | Used in |
+| --- | --- | --- | --- |
+| `public/media/uae-skyline.jpg` | **16:9** landscape | 1600 × 900, 206 KB | Built for the UAE |
 
 ### uae-skyline.jpg
 
-The wide Dubai skyline. Save the **landscape** version, not the tall one: this
-slot is 16:9 and the section treats the skyline as supporting context beside the
-text, not as its subject.
+The wide Dubai skyline, landscape rather than the tall crop: this slot is 16:9
+and the section treats the skyline as supporting context beside the text, not as
+its subject.
+
+### The kitchen photograph was removed
+
+`public/media/hero-kitchen.jpg` used to sit in the hero with the phone mockup
+overlapping its lower-left corner. It has been deleted at your request. The hero
+is now the headline and the interactive ABC AI mockup, with nothing behind them.
+
+If a hero photograph is ever wanted again, the slot was 4:5 portrait at
+1200 × 1500 and used `object-cover` inside a rounded panel.
+
+## Product thumbnails for the phone mockup
+
+The mockup's product strip expects four square images and renders each at 64px.
+**Until they exist it draws a simple illustration instead**
+([ProductGlyph](components/visuals/ProductGlyph.tsx)), so the site is complete
+without them: these are an upgrade, not a blocker.
+
+| Path | Product | Size |
+| --- | --- | --- |
+| `public/media/products/milk.jpg` | 2L milk bottle or carton | 400 × 400 |
+| `public/media/products/basmati-rice.jpg` | Basmati rice bag | 400 × 400 |
+| `public/media/products/eggs.jpg` | Egg carton | 400 × 400 |
+| `public/media/products/chicken-breast.jpg` | Chicken breast pack | 400 × 400 |
+
+Square crop, product centred, plain or white background. They render at 64px
+wide, so detail is lost anyway; a clear silhouette matters more than resolution.
+
+### Sourcing them
+
+**I cannot fetch these for you.** I have no web access in this session, and I
+will not invent retailer URLs: product links change constantly and made-up ones
+would simply 404. To pull them yourself:
+
+1. Search the retailer for the product (for example `amazon.ae` → "Almarai milk
+   2L").
+2. Open the product page, right-click the main image, "Save image as".
+3. Crop square and save at the path above.
+
+**On rights.** You have decided to use retailer imagery and I have built to that.
+The one thing worth doing: joining each retailer's affiliate programme normally
+grants explicit image rights and often a stable CDN URL, which converts this from
+accepted risk into an actual licence. That is a ten-minute job and it also covers
+the logo question that is still outstanding.
+
+If you would rather avoid it entirely, Unsplash and Pexels have generic milk,
+rice, eggs and chicken shots that are free for commercial use with no
+attribution, and the drawn fallback is already a legitimate ship.
 
 ## Already in place
 

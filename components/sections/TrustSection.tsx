@@ -33,7 +33,7 @@ export function TrustSection() {
                   ) : null}
                 </IconFrame>
                 <div>
-                  <h3 className="text-navy-900 text-[1.0625rem] font-semibold tracking-[-0.01em]">
+                  <h3 className="text-heading text-[1.0625rem] font-semibold tracking-[-0.01em]">
                     {item.title}
                   </h3>
                   <p className="text-slate mt-2 text-[0.9375rem] text-pretty">

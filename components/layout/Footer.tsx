@@ -8,12 +8,12 @@ const companyLinks = navLinks.filter((link) => link.href !== "#contact");
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-navy-950 text-blue-100">
+    <footer className="bg-footer text-onnavy">
       <Container className="pt-14 lg:pt-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
             <Wordmark tone="onNavy" />
-            <p className="mt-4 max-w-[30ch] text-[0.9375rem] text-blue-100/85">
+            <p className="text-onnavy/85 mt-4 max-w-[30ch] text-[0.9375rem]">
               {chrome.footerBlurb}
             </p>
           </div>
@@ -29,7 +29,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[0.9375rem] text-blue-100/85 transition-colors hover:text-white"
+                    className="text-onnavy/85 text-[0.9375rem] transition-colors hover:text-white"
                   >
                     {link.label}
                   </a>
@@ -49,7 +49,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[0.9375rem] text-blue-100/85 transition-colors hover:text-white"
+                    className="text-onnavy/85 text-[0.9375rem] transition-colors hover:text-white"
                   >
                     {link.label}
                   </a>
@@ -66,14 +66,14 @@ export function Footer() {
                 <li key={route.email}>
                   <a
                     href={`mailto:${route.email}`}
-                    className="text-[0.9375rem] text-blue-100/85 transition-colors hover:text-white"
+                    className="text-onnavy/85 text-[0.9375rem] transition-colors hover:text-white"
                   >
                     {route.email}
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-[0.9375rem] text-blue-100/70">
+            <p className="text-onnavy/70 mt-6 text-[0.9375rem]">
               {chrome.footerLocationLabel}
               <span className="mt-0.5 block text-white">{company.country}</span>
             </p>
@@ -82,7 +82,7 @@ export function Footer() {
       </Container>
       <div className="mt-12 border-t border-white/15">
         <Container className="py-5">
-          <p className="text-center text-[0.9375rem] text-blue-100/70">
+          <p className="text-onnavy/70 text-center text-[0.9375rem]">
             © {year} {company.copyrightHolder}. All rights reserved.
           </p>
         </Container>
