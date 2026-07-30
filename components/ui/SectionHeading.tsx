@@ -3,29 +3,39 @@ import { cn } from "@/lib/cn";
 
 type SectionHeadingProps = {
   readonly children: ReactNode;
-  readonly intro?: string;
-  readonly as?: "h2" | "h3";
+  readonly subheading?: string;
+  readonly id?: string;
   readonly className?: string;
+  readonly tone?: "dark" | "onNavy";
 };
 
 export function SectionHeading({
   children,
-  intro,
-  as: Tag = "h2",
+  subheading,
+  id,
   className,
+  tone = "dark",
 }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-2xl", className)}>
-      <Tag
+    <div className={cn(className)}>
+      <h2
+        id={id}
         className={cn(
-          "font-heading font-bold tracking-tight text-balance",
-          Tag === "h2" ? "text-3xl sm:text-4xl" : "text-xl sm:text-2xl",
+          "text-3xl leading-[1.12] font-bold tracking-[-0.02em] text-balance md:text-4xl lg:text-[2.625rem]",
+          tone === "onNavy" ? "text-white" : "text-navy-900",
         )}
       >
         {children}
-      </Tag>
-      {intro ? (
-        <p className="text-muted mt-4 text-lg text-pretty">{intro}</p>
+      </h2>
+      {subheading ? (
+        <p
+          className={cn(
+            "mt-3 text-[1.0625rem] font-semibold",
+            tone === "onNavy" ? "text-blue-100" : "text-blue-700",
+          )}
+        >
+          {subheading}
+        </p>
       ) : null}
     </div>
   );

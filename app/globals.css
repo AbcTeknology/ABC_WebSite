@@ -1,148 +1,96 @@
 @import "tailwindcss";
 
-/* Class-based dark mode, driven by next-themes. */
-@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-navy-950: #071a3d;
+  --color-navy-900: #0a2458;
+  --color-blue-700: #1746a2;
+  --color-blue-600: #2258c7;
+  --color-blue-100: #eaf1ff;
+  --color-blue-50: #f5f8ff;
 
-/* Semantic design tokens.
-   Sourced verbatim from the mobile app's palette so the website and the
-   product read as one system. See ABC_MobileApp/DESIGN.md. */
-:root {
-  --bg: #edf1f7;
-  --surface: #ffffff;
-  --card: #e8eef6;
-  --border: #d2dce9;
-  --text: #111827;
-  /* Darkened from the app's #64748B. That value clears 4.5:1 only against
-     pure white; the design system's own note says "ensure >=4.5:1 on surface".
-     This site also puts muted text on the page tint (#EDF1F7, 4.20:1) and on
-     cards (#E8EEF6, 4.08:1), where it failed. #5A6678 measures 5.14:1 and
-     4.99:1 on those two, and still reads clearly as secondary. */
-  --muted: #5a6678;
-  --accent: #f97316;
-  --accent-soft: #fff1e9;
-  --accent-soft-text: #9a3412;
-  --brand: #0ea5b7;
-  /* Ink, not white. Market Orange is a light colour in both themes, so white
-     label text on it measures 2.58:1 and fails WCAG AA (4.5:1 for 14px). Ink
-     measures 6.4:1 in light and 6.9:1 in dark. This deviates from
-     ABC_MobileApp/DESIGN.md, which specifies a white button label; that spec
-     and its own stated AA requirement contradict each other, and
-     accessibility wins. */
-  --on-accent: #111827;
+  --color-ink: #101828;
+  --color-graphite: #344054;
+
+  --color-slate: #475467;
+  --color-mist: #667085;
+  --color-rule: #d0d5dd;
+  --color-hairline: #eaecf0;
+  --color-tint: #f2f4f7;
+
+  --color-danger: #b42318;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --container-rail: 1180px;
+
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-raised: 0 8px 24px -6px rgba(7, 26, 61, 0.14);
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark {
-  --bg: #070b14;
-  --surface: #0f172a;
-  --card: #172033;
-  --border: #27344c;
-  --text: #f3f7ff;
-  --muted: #93a4bf;
-  --accent: #ff7a50;
-  --accent-soft: #3a2219;
-  --accent-soft-text: #ffd7c2;
-  --brand: #14b8a6;
-  /* Stays dark in dark mode too: the accent is lighter here, not darker. */
-  --on-accent: #111827;
-}
+html {
+  scroll-behavior: smooth;
 
-/* `inline` resolves the var at use-site so `.dark` overrides win.
-   Generates bg-surface, text-muted, border-border, and so on. */
-@theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-card: var(--card);
-  --color-border: var(--border);
-  --color-text: var(--text);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-soft-text: var(--accent-soft-text);
-  --color-brand: var(--brand);
-  --color-on-accent: var(--on-accent);
-
-  --font-heading: var(--font-barlow);
-  --font-body: var(--font-manrope);
-
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  background-color: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Focus rings are a build gate on this project, never removed. */
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
-/* The hero sits on `surface`, not on a colour fill.
-   The design system's One Accent Rule reserves orange for primary actions and
-   price emphasis, never for large decorative areas, so the hero earns its
-   weight from type scale and tonal layering instead. Orange appears there only
-   on the primary CTA and a single hairline rule. */
+.on-navy :focus-visible {
+  outline-color: #ffffff;
+}
 
-/* Retailer name marquee. Names only, no logos, until usage rights are
-   confirmed. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .marquee {
   position: relative;
   overflow: hidden;
-  padding-block: 0.35rem;
-  isolation: isolate;
-  /* The edge fade has to match whatever the marquee is sitting on, otherwise
-     it fades to the wrong colour and shows as a pair of vertical bars. Callers
-     override this when placing the marquee on a band. */
-  --marquee-fade: var(--bg);
-}
-
-.marquee-on-surface {
-  --marquee-fade: var(--surface);
-}
-
-.marquee::before,
-.marquee::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 2;
-  width: clamp(3rem, 12vw, 10rem);
-  pointer-events: none;
-}
-
-.marquee::before {
-  left: 0;
-  background: linear-gradient(
+  -webkit-mask-image: linear-gradient(
     90deg,
-    var(--marquee-fade) 0%,
-    color-mix(in srgb, var(--marquee-fade) 86%, transparent) 44%,
+    transparent 0,
+    #000 6%,
+    #000 94%,
     transparent 100%
   );
-}
-
-.marquee::after {
-  right: 0;
-  background: linear-gradient(
-    270deg,
-    var(--marquee-fade) 0%,
-    color-mix(in srgb, var(--marquee-fade) 86%, transparent) 44%,
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
     transparent 100%
   );
 }
 
 .marquee-track {
   display: flex;
-  width: fit-content;
-  min-width: max-content;
-  animation: marquee-scroll 26s linear infinite;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
   will-change: transform;
 }
 
@@ -150,11 +98,10 @@ body {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: clamp(2.5rem, 6vw, 5rem);
-  padding-inline: clamp(1.25rem, 3vw, 2.5rem);
 }
 
-.marquee:hover .marquee-track {
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
   animation-play-state: paused;
 }
 
@@ -167,15 +114,10 @@ body {
   }
 }
 
-/* Disclosure animation for the FAQ-style accordions. */
-details[open] > .disclosure-body {
-  animation: disclosure-open 180ms ease-out;
-}
-
-@keyframes disclosure-open {
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -183,14 +125,27 @@ details[open] > .disclosure-body {
   }
 }
 
+.rise {
+  animation: rise 0.62s var(--ease-out-soft) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  }
+
+  .rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   .marquee-track {

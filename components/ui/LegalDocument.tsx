@@ -8,7 +8,6 @@ type LegalDocumentProps = {
   readonly sections: readonly LegalSection[];
 };
 
-/** Shared rendering for the privacy and terms documents. */
 export function LegalDocument({
   headline,
   lastUpdated,
@@ -16,21 +15,20 @@ export function LegalDocument({
   sections,
 }: LegalDocumentProps) {
   return (
-    <Container className="pt-14 pb-20 sm:pt-20">
-      <Prose measure="wide">
-        <h1 className="font-heading text-4xl font-extrabold tracking-tight text-balance sm:text-5xl">
+    <Container className="pt-14 pb-20 lg:pt-20">
+      <Prose>
+        <h1 className="text-navy-900 text-4xl font-bold tracking-[-0.02em] text-balance lg:text-5xl">
           {headline}
         </h1>
-        <p className="text-muted mt-4 text-sm">{lastUpdated}</p>
-        <p className="text-muted mt-6 text-pretty">{intro}</p>
-
+        <p className="text-slate mt-4 text-[0.9375rem]">{lastUpdated}</p>
+        <p className="text-slate mt-6 text-pretty">{intro}</p>
         <div className="mt-12 space-y-10">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="font-heading text-xl font-bold">
+              <h2 className="text-navy-900 text-xl font-semibold tracking-[-0.01em]">
                 {section.title}
               </h2>
-              <p className="text-muted mt-3 text-pretty">{section.body}</p>
+              <p className="text-slate mt-3 text-pretty">{section.body}</p>
             </section>
           ))}
         </div>

@@ -1,12 +1,3 @@
-/**
- * Legal copy, ported verbatim from the existing site.
- *
- * Deliberately not rewritten for house style: these are approved legal
- * documents, and changing their wording is a legal decision rather than an
- * editorial one. Only the "Last updated" dates and the surrounding markup are
- * this project's concern.
- */
-
 export type LegalSection = {
   readonly title: string;
   readonly body: string;

@@ -1,46 +1,4 @@
-/**
- * Every user-facing sentence on this site.
- *
- * Components read from here and must never hardcode copy. Marketing text is
- * refined externally and dropped back into this one file.
- *
- * ---------------------------------------------------------------------------
- * CLAIMS THIS PRODUCT CANNOT MAKE
- * ---------------------------------------------------------------------------
- * Read this before adding or editing anything below. Each item is a claim the
- * codebase does not support, and putting it on the site would make the site
- * wrong.
- *
- *  1. In-app checkout, payment, order placement, or delivery. ABC AI links out
- *     to the retailer. Always. It never handles a transaction.
- *  2. Courier or delivery tracking. Location is used to price and check stock,
- *     not to follow an order.
- *  3. Any language other than English, or any currency other than AED.
- *  4. Availability on the App Store or Google Play. Neither listing is live.
- *  5. Ratings, review counts, user counts, download counts, or "trusted by
- *     thousands". The company is pre-launch.
- *  6. A search time in seconds. Performance is not yet stable enough to
- *     publish a number.
- *  7. Guaranteed price accuracy. Prefer "current listings" over "real time",
- *     and never promise a price will still match at checkout.
- *  8. Any vendor, merchant, seller, driver, or admin product. There is no B2B
- *     side to this business.
- *  9. Percentage savings or average-basket-savings figures. None measured.
- * 10. Funding, awards, partnerships, or retailer endorsements. There are none.
- *     ABC Teknology has no commercial relationship with Amazon, Noon,
- *     Carrefour or Talabat.
- *
- * House style: no em-dashes or en-dashes. Short sentences. No idioms that fail
- * in translation, since the audience includes Arabic speakers even though the
- * site ships in English.
- */
-
-export type Pillar = {
-  readonly title: string;
-  readonly body: string;
-};
-
-export type Step = {
+export type Value = {
   readonly title: string;
   readonly body: string;
 };
@@ -51,405 +9,278 @@ export type Offering = {
   readonly body: string;
 };
 
-export type Capability = {
+export type Step = {
   readonly title: string;
   readonly body: string;
 };
 
-/* -------------------------------------------------------------------------- */
-/* Home                                                                       */
-/* -------------------------------------------------------------------------- */
-
-export const home = {
-  hero: {
-    headline: "We build AI that makes everyday spending smarter.",
-    body: "ABC Teknology is a technology company based in the United Arab Emirates. Our first product, ABC AI, compares grocery prices across Amazon, Noon, Carrefour and Talabat, so shoppers stop paying more than they have to.",
-    primaryCta: "Download ABC AI",
-    secondaryCta: "See what we do",
-  },
-
-  whoWeAre: {
-    heading: "Who we are",
-    body: [
-      "We are a small product team in the UAE building applied AI for everyday commerce. Software that does the tedious work of comparing, checking and deciding, so people keep more of their money and more of their time.",
-      "We are not a research lab and we are not an agency. We build products that people use on their phones, in this market, for real purchases.",
-    ],
-    pillars: [
-      {
-        title: "Simplicity",
-        body: "If it needs explaining, it is not finished.",
-      },
-      {
-        title: "Speed",
-        body: "An answer that arrives late is not an answer.",
-      },
-      {
-        title: "User obsession",
-        body: "We measure ourselves in dirhams saved, not features shipped.",
-      },
-    ] as const satisfies readonly Pillar[],
-  },
-
-  whatWeOffer: {
-    heading: "What we offer",
-    intro:
-      "One company, one focus. Turning messy real-world pricing into a single clear answer.",
-    offerings: [
-      {
-        icon: "MessageSquare",
-        title: "ABC AI, the shopping assistant",
-        body: "A conversational app for UAE shoppers. Ask in plain language, get the cheapest option for every item across four major retailers, and a best-value basket totalled in AED.",
-      },
-      {
-        icon: "Scale",
-        title: "Multi-retailer price intelligence",
-        body: "Our own data layer reads current listings from Amazon, Noon, Carrefour and Talabat and converts inconsistent pack sizes into one comparable price per kilo, litre or piece.",
-      },
-      {
-        icon: "Workflow",
-        title: "Conversational AI agents",
-        body: "A production agent stack that understands intent, tolerates typos, holds context across a conversation, and refuses to guess a number it cannot verify.",
-      },
-      {
-        icon: "Send",
-        title: "Messaging channels",
-        body: "The same assistant on WhatsApp, for shoppers who would rather send a list than open an app.",
-      },
-    ] as const satisfies readonly Offering[],
-  },
-
-  howItWorks: {
-    heading: "How ABC AI works",
-    steps: [
-      {
-        title: "Say what you need",
-        body: "Type your list the way you would text a friend. Typos are fine. So is a couple of litres of laban.",
-      },
-      {
-        title: "We check every store at once",
-        body: "ABC AI searches Amazon, Noon, Carrefour and Talabat in parallel and reads the actual listings.",
-      },
-      {
-        title: "You get a best-value basket",
-        body: "The cheapest option per item, compared on true unit price so the comparison is honest, totalled in AED.",
-      },
-      {
-        title: "You buy at the store",
-        body: "ABC AI hands you straight to the retailer to complete the order. We never sit between you and your purchase.",
-      },
-    ] as const satisfies readonly Step[],
-  },
-
-  capabilities: {
-    heading: "What the assistant can do",
-    items: [
-      {
-        title: "Plain language, not search syntax",
-        body: "Write a shopping list, not keywords.",
-      },
-      {
-        title: "True unit pricing",
-        body: "A 900g pack and a 1kg pack are compared on the same basis, per kilo, per litre, per piece.",
-      },
-      {
-        title: "Smart swaps",
-        body: "When a bigger pack costs less per unit, we show you and let you decide.",
-      },
-      {
-        title: "Conversational editing",
-        body: "Add eggs. Make it two kilos. Nothing imported. The basket updates without starting over.",
-      },
-      {
-        title: "Emirate aware",
-        body: "Prices and availability change across the seven emirates. So do our answers.",
-      },
-      {
-        title: "In a hurry",
-        body: "Say you need it today and we prioritise the options that can actually get there.",
-      },
-      {
-        title: "Typo tolerant",
-        body: "Organ juice still finds orange juice.",
-      },
-      {
-        title: "A basket you can edit",
-        body: "Adjust quantities, drop items, watch the total move.",
-      },
-      {
-        title: "Told when it is ready",
-        body: "A notification when your basket is priced, so you can close the app while we work.",
-      },
-      {
-        title: "Free",
-        body: "No subscription, no payment details, nothing to cancel.",
-      },
-    ] as const satisfies readonly Capability[],
-  },
-
-  builtForUae: {
-    heading: "Built for the UAE, not adapted to it",
-    body: [
-      "Four large online grocery retailers. Seven emirates. Prices and stock that change by location. A comparison engine designed somewhere else does not know that the same item is priced differently in Sharjah than in Dubai, or that laban belongs on a weekly list rather than in a spell-checker.",
-      "We built for this market first because it is the market we live in.",
-    ],
-  },
-
-  howWeBuild: {
-    heading: "How we build",
-    body: "ABC AI runs on a purpose-built agent pipeline. Every request is classified, searched across retailers in parallel, semantically validated, ranked on true unit price, and only then written into an answer. Each stage is a separate, testable step. That is why the assistant will tell you it could not find something instead of inventing it.",
-    points: [
-      "Python and FastAPI services, orchestrated with LangGraph",
-      "Language models for intent, validation and ranking. Never for arithmetic.",
-      "A dedicated crawling and normalisation service for retailer data",
-      "React Native and Expo, iOS and Android from one codebase",
-      "Infrastructure we run and operate ourselves",
-    ],
-    linkLabel: "How it works",
-  },
-
-  principles: {
-    heading: "What we will not do",
-    items: [
-      {
-        title: "We do not take your money",
-        body: "Purchases happen on the retailer's own app. We never see payment details.",
-      },
-      {
-        title: "We do not sell your data",
-        body: "Not to retailers, not to anyone.",
-      },
-      {
-        title: "We do not run ads or tracking cookies",
-        body: "The product has no incentive to show you the second-cheapest option.",
-      },
-      {
-        title: "We do not invent prices",
-        body: "If a number cannot be verified, the assistant says so rather than filling the gap.",
-      },
-    ] as const satisfies readonly Capability[],
-    footnote:
-      "Handled in line with UAE data protection law (Federal Decree-Law 45/2021).",
-  },
-
-  finalCta: {
-    heading: "Start paying the lowest price.",
-    body: "ABC AI is free. Download it, send your list, and see what your usual basket should have cost.",
-  },
-} as const;
-
-/* -------------------------------------------------------------------------- */
-/* About                                                                      */
-/* -------------------------------------------------------------------------- */
-
-export const about = {
-  headline: "We built ABC Teknology so UAE shoppers never overpay.",
-  lead: "Groceries are the one bill every household pays every week, and the one where the same basket can cost noticeably more or less depending on which app you happened to open. Most people know this. Almost nobody has the time to check four apps, item by item, before every shop.",
-  sections: [
+export const hero = {
+  headline: "AI that makes everyday spending smarter.",
+  body: "ABC Teknology is a UAE-based technology company building applied AI for everyday commerce. Our first product, ABC AI, helps shoppers compare grocery prices across Amazon, Noon, Carrefour and Talabat, so they can find better value without checking every store manually.",
+  primaryCta: "Get Early Access",
+  secondaryCta: "See How It Works",
+  benefits: [
+    { title: "Prices across four retailers", detail: "Searched in parallel." },
     {
-      heading: "The problem we started with",
-      body: [
-        "We watched people do this manually. Open Amazon, check a price. Open Noon, check the same price. Give up halfway and order from whichever app was already logged in.",
-        "The information needed to make a better decision existed. It was just spread across four places and expressed in pack sizes that do not line up.",
-      ],
+      title: "True unit-price comparison",
+      detail: "Per kilo, litre or piece.",
     },
-    {
-      heading: "What we decided to build",
-      body: [
-        "An assistant you can just talk to. You describe your shopping list once, in your own words, and get back one answer: what each item costs at its cheapest, where to buy it, and what the whole basket comes to in dirhams.",
-        "No spreadsheets. No tabs. No pack-size arithmetic.",
-      ],
-    },
-    {
-      heading: "Where we are",
-      body: [
-        "ABC Teknology is UAE-based and building for the UAE first. We are early, we are small, and we are shipping.",
-      ],
-    },
-  ],
-  howWeWork: {
-    heading: "How we work",
-    pillars: [
-      {
-        title: "Simplicity",
-        body: "The best version of a feature is usually the one with fewer parts. If a screen needs a tutorial, we have not finished designing it.",
-      },
-      {
-        title: "Speed",
-        body: "People check prices in the minutes before they order. An assistant that takes too long has already lost.",
-      },
-      {
-        title: "User obsession",
-        body: "Our internal measure is not sign-ups. It is whether a real person, with a real list, ended up with a genuinely cheaper basket.",
-      },
-    ] as const satisfies readonly Pillar[],
-  },
-  mission: {
-    heading: "Our mission",
-    body: "Every dirham saved on groceries is a dirham you keep. We want every household in the UAE to reach the cheapest price without spending extra time to find it.",
-  },
-} as const;
-
-/* -------------------------------------------------------------------------- */
-/* What we offer                                                              */
-/* -------------------------------------------------------------------------- */
-
-export const whatWeOffer = {
-  headline: "What we offer",
-  lead: "ABC Teknology builds one thing well: systems that turn scattered, inconsistent retail pricing into a decision you can act on in seconds.",
-  sections: [
-    {
-      heading: "ABC AI",
-      body: [
-        "A conversational shopping assistant for UAE households, on iOS and Android.",
-        "Describe what you need in plain language. ABC AI searches Amazon, Noon, Carrefour and Talabat at the same time, checks that each result is genuinely the thing you asked for, compares options on price per kilo or litre rather than headline price, and returns a best-value basket totalled in AED. Then it sends you to the retailer to buy.",
-        "Free to use. No payment details. No checkout in between.",
-      ],
-    },
-    {
-      heading: "Price intelligence across four retailers",
-      body: [
-        "Behind the assistant is a data layer built for a market where the same product appears under four different names, in four different pack sizes, at four different prices, and where all of that changes by emirate.",
-        "We read current listings, normalise pack sizes into a common unit, resolve promotions and multibuy offers into an effective price, and keep the comparison honest.",
-      ],
-    },
-    {
-      heading: "Conversational AI agents",
-      body: [
-        "The assistant is a multi-stage agent pipeline, not a single prompt. Intent classification, parallel retrieval, semantic validation, ranking and response generation are separate, individually testable steps.",
-        "That structure is what makes the answers trustworthy. Products that do not match your request are filtered out before ranking. Totals are calculated in code, never by a language model. When data is missing, the assistant says so.",
-      ],
-    },
-    {
-      heading: "WhatsApp ordering",
-      body: [
-        "Some people will always prefer to send a message. The same assistant runs on WhatsApp, so a shopping list can be a text.",
-      ],
-    },
+    { title: "Best-value basket in AED", detail: "Totalled for you." },
+    { title: "Built for UAE shoppers", detail: "All seven emirates." },
   ],
 } as const;
 
-/* -------------------------------------------------------------------------- */
-/* Technology                                                                 */
-/* -------------------------------------------------------------------------- */
+export const retailerStrip = {
+  caption: "ABC AI compares current listings across",
+} as const;
+
+export const vision = {
+  heading: "Our Vision",
+  subheading: "Smarter spending. Better everyday decisions.",
+  body: [
+    "We believe people should have clearer information before they spend. ABC Teknology builds applied AI products that reduce repetitive work, simplify complex choices and help people make more informed everyday decisions.",
+    "Our first focus is grocery commerce in the UAE, where prices, pack sizes and availability vary across retailers and locations.",
+  ],
+  values: [
+    {
+      title: "Customer First",
+      body: "We build products around real customer problems and measurable usefulness.",
+    },
+    {
+      title: "Integrity",
+      body: "We present verified information clearly and avoid hidden commercial influence.",
+    },
+    {
+      title: "Responsible Innovation",
+      body: "We use AI where it improves understanding and decision-making, while using deterministic software for calculations and critical logic.",
+    },
+    {
+      title: "Local Impact",
+      body: "We are building from the UAE for the people, businesses and digital economy of the region.",
+    },
+  ] as const satisfies readonly Value[],
+} as const;
+
+export const offerings = {
+  heading: "What We Offer",
+  intro:
+    "ABC Teknology builds systems that transform scattered commerce data into clear decisions.",
+  items: [
+    {
+      icon: "MessageSquare",
+      title: "ABC AI Shopping Assistant",
+      body: "A conversational shopping assistant that helps UAE shoppers find and compare grocery products across major online retailers.",
+    },
+    {
+      icon: "Scale",
+      title: "Retail Price Intelligence",
+      body: "A structured data layer that reads current listings, normalizes pack sizes and calculates comparable unit prices.",
+    },
+    {
+      icon: "Workflow",
+      title: "Conversational AI Systems",
+      body: "Multi-stage AI workflows designed to understand intent, validate results and communicate verified answers clearly.",
+    },
+    {
+      icon: "Send",
+      title: "Messaging Experiences",
+      body: "The same shopping assistance can be delivered through mobile and messaging channels such as WhatsApp.",
+    },
+  ] as const satisfies readonly Offering[],
+} as const;
+
+export const howItWorks = {
+  heading: "How ABC AI Works",
+  intro:
+    "ABC AI uses a structured pipeline rather than relying on one unrestricted AI prompt.",
+  steps: [
+    {
+      title: "Classify",
+      body: "Understand what the shopper requested, including products, quantities and basket changes.",
+    },
+    {
+      title: "Search",
+      body: "Search enabled retailers in parallel for relevant listings.",
+    },
+    {
+      title: "Validate",
+      body: "Confirm that each result matches the shopper's intended product.",
+    },
+    {
+      title: "Rank",
+      body: "Compare qualified listings using unit price and relevant delivery information.",
+    },
+    {
+      title: "Respond",
+      body: "Present the strongest options and direct the shopper to the retailer.",
+    },
+  ] as const satisfies readonly Step[],
+} as const;
+
+export const demo = {
+  heading: "ABC AI in Action",
+  intro:
+    "From a plain shopping request to a best-value basket, with the comparison shown rather than asserted.",
+  exampleNotice:
+    "Illustrative example. Figures shown are for demonstration and are not measured prices.",
+  request: "Find 2 litres of milk, basmati rice, 12 eggs and chicken breast.",
+  stages: {
+    ask: "You ask",
+    compare: "We compare",
+    basket: "Best-value basket",
+  },
+  thinking: "Understanding your request",
+  rows: [
+    {
+      item: "Milk",
+      unit: "litre",
+      unitShort: "L",
+      offers: [
+        { size: "2L", price: 7.95, unitPrice: 3.98 },
+        { size: "1.5L", price: 6.45, unitPrice: 4.3 },
+        { size: "2L", price: 8.25, unitPrice: 4.13 },
+        { size: "1L", price: 4.6, unitPrice: 4.6 },
+      ],
+      bestIndex: 0,
+    },
+    {
+      item: "Basmati rice",
+      unit: "kilo",
+      unitShort: "kg",
+      offers: [
+        { size: "5kg", price: 62.0, unitPrice: 12.4 },
+        { size: "1kg", price: 12.9, unitPrice: 12.9 },
+        { size: "2kg", price: 23.5, unitPrice: 11.75 },
+        { size: "1kg", price: 13.1, unitPrice: 13.1 },
+      ],
+      bestIndex: 2,
+    },
+    {
+      item: "Eggs",
+      unit: "egg",
+      unitShort: "egg",
+      offers: [
+        { size: "30 pcs", price: 21.9, unitPrice: 0.73 },
+        { size: "15 pcs", price: 9.9, unitPrice: 0.66 },
+        { size: "12 pcs", price: 8.5, unitPrice: 0.71 },
+        { size: "6 pcs", price: 4.75, unitPrice: 0.79 },
+      ],
+      bestIndex: 1,
+    },
+    {
+      item: "Chicken breast",
+      unit: "kilo",
+      unitShort: "kg",
+      offers: [
+        { size: "1kg", price: 34.5, unitPrice: 34.5 },
+        { size: "500g", price: 18.9, unitPrice: 37.8 },
+        { size: "1kg", price: 35.75, unitPrice: 35.75 },
+        { size: "900g", price: 29.9, unitPrice: 33.22 },
+      ],
+      bestIndex: 3,
+    },
+  ],
+  basketLabel: "Total",
+  basketAction: "View at stores",
+  bestLabel: "lowest",
+  unitHint: "Pack size and price per unit shown beneath each figure.",
+} as const;
+
+export const uae = {
+  heading: "Built for the UAE",
+  body: "ABC AI is designed around the market it serves. Retailer prices, availability and delivery options can change by emirate and location. Local product terminology also matters.",
+  points: [
+    {
+      title: "Prices in AED",
+      body: "Always in local currency.",
+    },
+    {
+      title: "Seven emirates covered",
+      body: "Location-aware availability.",
+    },
+    {
+      title: "Local products and terminology",
+      body: "We understand how you shop.",
+    },
+    {
+      title: "Delivery preferences",
+      body: "From express to scheduled.",
+    },
+  ] as const satisfies readonly Value[],
+} as const;
 
 export const technology = {
-  headline: "How it works",
-  lead: "A price comparison is only useful if you can trust it. Most of our engineering goes into making sure the number on the screen is the number at the store.",
-  pipeline: {
-    heading: "A pipeline, not a prompt",
-    intro:
-      "Every request moves through a fixed sequence of steps, each one testable on its own.",
-    stages: [
-      {
-        title: "Classify",
-        body: "Work out what the shopper is actually asking for, extract each product and quantity, and understand refinements to a basket that already exists.",
-      },
-      {
-        title: "Search",
-        body: "Query every enabled retailer in parallel rather than one after another.",
-      },
-      {
-        title: "Validate",
-        body: "Check semantically that each result matches the request. Orange juice is not oranges. A blender is not a smoothie.",
-      },
-      {
-        title: "Rank",
-        body: "Order the survivors on true unit price, with delivery time and fee as tie-breakers.",
-      },
-      {
-        title: "Respond",
-        body: "Write the answer from verified data only.",
-      },
-    ] as const satisfies readonly Step[],
-  },
-  sections: [
+  heading: "Technology You Can Trust",
+  intro:
+    "ABC Teknology combines language models with deterministic software to produce more reliable shopping comparisons.",
+  pillars: [
     {
-      heading: "Language models where they help, code where it matters",
-      body: [
-        "We use language models for the things they are good at: understanding messy human phrasing, judging whether two product listings mean the same thing, weighing options.",
-        "We do not use them for arithmetic. Every total, unit price and saving is computed in code from stored values. A fabricated number is treated as a critical failure, not a rounding error.",
-      ],
+      title: "Language models for understanding",
+      body: "Used to interpret natural language and validate whether product listings match a request.",
     },
     {
-      heading: "Built for a market that moves",
-      body: [
-        "Prices, stock and delivery windows change constantly and vary across the seven emirates. Our data layer refreshes retailer listings continuously, normalises pack sizes into comparable units, and resolves promotions into an effective price.",
-      ],
+      title: "Software for calculations",
+      body: "Unit prices, totals and basket calculations are performed by code using stored values.",
     },
-  ],
-  stack: {
-    heading: "The stack",
-    items: [
-      { title: "Services", body: "Python, FastAPI, PostgreSQL, Redis" },
-      {
-        title: "Agent orchestration",
-        body: "LangGraph, with retry and fallback at every external boundary",
-      },
-      {
-        title: "Mobile",
-        body: "React Native and Expo, iOS and Android from one codebase",
-      },
-      {
-        title: "Infrastructure",
-        body: "Self-hosted and operated in house",
-      },
-    ] as const satisfies readonly Capability[],
-  },
+    {
+      title: "Structured agent workflow",
+      body: "Classification, retrieval, validation, ranking and response generation remain separate stages.",
+    },
+    {
+      title: "Resilient infrastructure",
+      body: "External services use retry and fallback logic where appropriate.",
+    },
+  ] as const satisfies readonly Value[],
 } as const;
 
-/* -------------------------------------------------------------------------- */
-/* Careers — NOT CURRENTLY PUBLISHED                                          */
-/* -------------------------------------------------------------------------- */
-/* The /careers page was cut before launch: there are no open roles, so the
-   page had nothing to say. Kept here so restoring it is a matter of adding
-   `app/careers/page.tsx` back and re-adding the nav entry in `site.ts`,
-   rather than rewriting the copy. */
-
-export const careers = {
-  headline: "Help us save every shopper money.",
-  lead: "We are a small, focused team in the UAE. We ship, we measure, and we cut what does not earn its place.",
-  lookFor: {
-    heading: "What we look for",
-    items: [
-      "People who reduce scope rather than add it",
-      "People who would rather test an assumption than argue about it",
-      "People who care that the number on the screen is correct",
-    ],
-  },
-  openRoles: {
-    heading: "Open roles",
-    body: "No open roles right now. If you think you should be on this team anyway, send us something you have built.",
-    email: "careers@abcteknology.com",
-  },
+export const trust = {
+  heading: "Designed Around Shopper Trust",
+  items: [
+    {
+      title: "No payment handling",
+      body: "ABC AI links shoppers to retailer platforms to complete purchases. It does not process checkout.",
+    },
+    {
+      title: "No sale of personal information",
+      body: "User information is not sold to retailers or advertisers.",
+    },
+    {
+      title: "No advertising or tracking cookies",
+      body: "The product is not designed around advertising incentives.",
+    },
+    {
+      title: "No invented prices",
+      body: "When a price cannot be verified, the assistant says so rather than guessing.",
+    },
+  ] as const satisfies readonly Value[],
 } as const;
 
-/* -------------------------------------------------------------------------- */
-/* Contact — NOT CURRENTLY PUBLISHED                                          */
-/* -------------------------------------------------------------------------- */
-/* The /contact page was cut before launch. Contact still reaches people: the
-   footer carries the general and support addresses, and the privacy and terms
-   documents name their own addresses inline. Restore the same way as careers
-   above. */
-
-export const contact = {
-  headline: "Get in touch",
-  lead: "Questions, partnership ideas, or something that did not work. All of it reaches a person.",
-  hoursLabel: "Support hours",
+export const earlyAccess = {
+  heading: "Ready to shop smarter?",
+  body: "Join the ABC AI early-access list and be among the first to try a clearer way to compare grocery prices in the UAE.",
+  emailLabel: "Email address",
+  emailPlaceholder: "Enter your email address",
+  submit: "Get Early Access",
+  invalidEmail: "Enter a valid email address, for example name@example.com.",
+  mailtoSubject: "ABC AI early access",
+  mailtoNote: "This opens your email app so you can send the request.",
+  success:
+    "Your email app should now be open. Send the message to join the list.",
 } as const;
-
-/* -------------------------------------------------------------------------- */
-/* Shared chrome                                                              */
-/* -------------------------------------------------------------------------- */
 
 export const chrome = {
   skipToContent: "Skip to content",
-  downloadCta: "Download ABC AI",
-  comingSoon: "Coming soon",
-  storesPendingNote:
-    "ABC AI is not on the app stores yet. Listings are on the way.",
+  menuOpen: "Open menu",
+  menuClose: "Close menu",
+  headerCta: "Get Early Access",
+  backToTop: "back to top",
+  demoItemHeader: "Item",
   footerBlurb:
-    "ABC Teknology builds applied AI for everyday commerce in the United Arab Emirates.",
-  retailerCaption: "ABC AI reads current listings from",
+    "ABC Teknology is a UAE-based technology company building applied AI for everyday commerce.",
+  footerCompany: "Company",
+  footerLegal: "Legal",
+  footerContact: "Contact",
+  footerLocationLabel: "Proudly based in",
   notFound: {
     headline: "That page does not exist.",
     body: "The link may be out of date, or the page may have moved.",

@@ -1,22 +1,13 @@
 import { ImageResponse } from "next/og";
 import { company } from "@/content/site";
-import { home } from "@/content/copy";
+import { hero } from "@/content/copy";
 
-// Rendered once at build time: a static export has no server to generate it
-// on request.
 export const dynamic = "force-static";
 
-export const alt = `${company.legalName} — AI for everyday spending`;
+export const alt = `${company.legalName}: Applied AI for everyday commerce`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/**
- * Social preview card, generated at build time.
- *
- * Mirrors the hero: dark surface, typographic, with orange used only as a
- * single accent rule. A full orange card would contradict the One Accent Rule
- * in the one place the brand travels furthest from the site.
- */
 export default function OpengraphImage() {
   return new ImageResponse(
     <div
@@ -26,55 +17,53 @@ export default function OpengraphImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        padding: "80px",
-        backgroundColor: "#0F172A",
+        padding: "76px 80px",
+        backgroundColor: "#FFFFFF",
         fontFamily: "sans-serif",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
         <div
           style={{
             display: "flex",
-            width: 44,
+            width: 40,
             height: 5,
-            borderRadius: 999,
-            backgroundColor: "#F97316",
+            backgroundColor: "#1746A2",
           }}
         />
         <div
           style={{
             display: "flex",
-            fontSize: 28,
-            fontWeight: 600,
-            color: "#93A4BF",
+            fontSize: 27,
+            fontWeight: 700,
+            color: "#0A2458",
+            letterSpacing: "-0.02em",
           }}
         >
           {company.legalName}
         </div>
       </div>
-
       <div
         style={{
           display: "flex",
-          fontSize: 76,
-          fontWeight: 800,
-          lineHeight: 1.05,
-          letterSpacing: "-0.02em",
-          color: "#F3F7FF",
-          maxWidth: 940,
+          fontSize: 72,
+          fontWeight: 700,
+          lineHeight: 1.02,
+          letterSpacing: "-0.03em",
+          color: "#0A2458",
+          maxWidth: 920,
         }}
       >
-        {home.hero.headline}
+        {hero.headline}
       </div>
-
       <div
         style={{
           display: "flex",
-          fontSize: 26,
-          color: "#93A4BF",
+          fontSize: 25,
+          color: "#475467",
         }}
       >
-        Built in the United Arab Emirates
+        Applied AI for everyday commerce · United Arab Emirates
       </div>
     </div>,
     size,

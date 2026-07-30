@@ -4,15 +4,13 @@ import { Container, Prose } from "@/components/ui/Container";
 
 export default function NotFound() {
   return (
-    <Container className="py-24 sm:py-32">
+    <Container className="py-24 lg:py-32">
       <Prose>
-        <p className="text-accent font-heading text-sm font-bold tracking-widest">
-          404
-        </p>
-        <h1 className="font-heading mt-3 text-4xl font-extrabold tracking-tight text-balance">
+        <p className="text-[0.9375rem] font-bold text-blue-700">404</p>
+        <h1 className="text-navy-900 mt-3 text-4xl font-bold tracking-[-0.02em] text-balance">
           {chrome.notFound.headline}
         </h1>
-        <p className="text-muted mt-4 text-pretty">{chrome.notFound.body}</p>
+        <p className="text-slate mt-4 text-pretty">{chrome.notFound.body}</p>
         <ButtonLink href="/" className="mt-8">
           {chrome.notFound.cta}
         </ButtonLink>
