@@ -15,6 +15,17 @@ export type Step = {
   readonly body: string;
 };
 
+export type Offer = {
+  readonly title: string;
+  readonly size: string;
+  readonly price: number;
+  readonly unitPrice: number;
+  readonly was?: number;
+  readonly rating?: number;
+  readonly reviews?: number;
+  readonly delivery?: string;
+};
+
 export const hero = {
   headline: "AI that makes everyday spending smarter.",
   body: "ABC Teknology is a UAE-based technology company building applied AI for everyday commerce. Our first product, ABC AI, helps shoppers compare grocery prices across Amazon, Noon, Carrefour and Talabat, so they can find better value without checking every store manually.",
@@ -97,27 +108,27 @@ export const howItWorks = {
   steps: [
     {
       title: "You send your list",
-      status: "Reading your list",
+      status: "Understanding your request...",
       body: "Write it the way you would text a friend. The whole list at once, in your own words, with no forms or filters to fill in.",
     },
     {
       title: "Every store at once",
-      status: "Checking four stores",
+      status: "Searching stores...",
       body: "Amazon, Noon, Carrefour and Talabat are all checked together rather than one after another, so you are not waiting on four searches.",
     },
     {
       title: "Only the right product",
-      status: "Matching products",
+      status: "Checking & reading packages...",
       body: "Orange juice is not oranges, and a blender is not a smoothie. Anything that is not what you asked for is dropped before price is considered.",
     },
     {
       title: "Compared on one basis",
-      status: "Comparing unit prices",
+      status: "Finding best value...",
       body: "Pack sizes never line up between retailers, so every option is priced per kilo, litre or piece. That is the only way the cheapest option is really the cheapest.",
     },
     {
       title: "One basket, one total",
-      status: "Building your basket",
+      status: "Preparing your basket...",
       body: "The best value for each item, added up in dirhams, with a link out to the retailer when you are ready to buy.",
     },
   ] as const satisfies readonly Step[],
@@ -129,8 +140,37 @@ export const demo = {
     "From a plain shopping request to a best-value basket, with the comparison shown rather than asserted.",
   exampleNotice: "Figures are an example, not measured prices.",
   request: "Find 2 litres of milk, basmati rice, 12 eggs and chicken breast.",
-  runProgress: "Working through the request",
-  runDone: "Comparison complete",
+  reply:
+    "Here is the best value for each item. The 2L milk at Amazon is cheapest per litre, and the 2kg basmati at Carrefour beats the 5kg once you compare per kilo. Your basket comes to AED 71.25.",
+  suggestions: ["Add laban", "Make it 2 kilos", "Nothing imported"],
+  productsLabel: "Available Products",
+  swapLabel: "Smart Swap Suggestion",
+  swapHint: "Get better value by switching to a larger pack size.",
+  swapPickLabel: "Your pick",
+  swapBestLabel: "BEST VALUE",
+  swapCta: "Switch to",
+  cheapestLabel: "Cheapest",
+  inBasketLabel: "In basket",
+  addToBasketLabel: "Add to basket",
+  viewLabel: "View",
+  basketEyebrow: "Shopping summary",
+  editBasketLabel: "Edit basket",
+  editBasketHint: "Change quantities or remove items, then save",
+  quantityLabel: "Quantity",
+  estimatedHint: "Estimated total updates as you change quantities",
+  cancelLabel: "Cancel",
+  saveLabel: "Save basket",
+  swap: {
+    item: "Milk",
+    requested: "2L",
+    better: {
+      title: "Almarai Fresh Milk Full Fat 4L",
+      size: "4L",
+      price: 14.4,
+      unitPrice: 3.6,
+    },
+    saving: 0.38,
+  },
   stages: {
     ask: "You ask",
     compare: "We compare",
@@ -142,11 +182,37 @@ export const demo = {
       unit: "litre",
       unitShort: "L",
       offers: [
-        { size: "2L", price: 7.95, unitPrice: 3.98 },
-        { size: "1.5L", price: 6.45, unitPrice: 4.3 },
-        { size: "2L", price: 8.25, unitPrice: 4.13 },
-        { size: "1L", price: 4.6, unitPrice: 4.6 },
-      ],
+        {
+          title: "Almarai Fresh Milk Full Fat 2L",
+          size: "2L",
+          price: 7.95,
+          unitPrice: 3.98,
+          was: 8.75,
+          rating: 4.5,
+          reviews: 212,
+        },
+        {
+          title: "Al Ain Fresh Milk 1.5L",
+          size: "1.5L",
+          price: 6.45,
+          unitPrice: 4.3,
+          delivery: "45-60m",
+        },
+        {
+          title: "Almarai Full Fat Milk 2L",
+          size: "2L",
+          price: 8.25,
+          unitPrice: 4.13,
+          delivery: "90m",
+        },
+        {
+          title: "Marmum Fresh Milk 1L",
+          size: "1L",
+          price: 4.6,
+          unitPrice: 4.6,
+          delivery: "25m",
+        },
+      ] as const satisfies readonly Offer[],
       bestIndex: 0,
     },
     {
@@ -154,11 +220,37 @@ export const demo = {
       unit: "kilo",
       unitShort: "kg",
       offers: [
-        { size: "5kg", price: 62.0, unitPrice: 12.4 },
-        { size: "1kg", price: 12.9, unitPrice: 12.9 },
-        { size: "2kg", price: 23.5, unitPrice: 11.75 },
-        { size: "1kg", price: 13.1, unitPrice: 13.1 },
-      ],
+        {
+          title: "Daawat Rozana Basmati Rice 5kg",
+          size: "5kg",
+          price: 62.0,
+          unitPrice: 12.4,
+          rating: 4.3,
+          reviews: 88,
+        },
+        {
+          title: "India Gate Basmati Rice 1kg",
+          size: "1kg",
+          price: 12.9,
+          unitPrice: 12.9,
+          delivery: "60m",
+        },
+        {
+          title: "Tilda Pure Basmati Rice 2kg",
+          size: "2kg",
+          price: 23.5,
+          unitPrice: 11.75,
+          was: 26.0,
+          delivery: "90m",
+        },
+        {
+          title: "Abu Kass Basmati Rice 1kg",
+          size: "1kg",
+          price: 13.1,
+          unitPrice: 13.1,
+          delivery: "30m",
+        },
+      ] as const satisfies readonly Offer[],
       bestIndex: 2,
     },
     {
@@ -166,11 +258,37 @@ export const demo = {
       unit: "egg",
       unitShort: "egg",
       offers: [
-        { size: "30 pcs", price: 21.9, unitPrice: 0.73 },
-        { size: "15 pcs", price: 9.9, unitPrice: 0.66 },
-        { size: "12 pcs", price: 8.5, unitPrice: 0.71 },
-        { size: "6 pcs", price: 4.75, unitPrice: 0.79 },
-      ],
+        {
+          title: "Al Jazira Brown Eggs 30 pcs",
+          size: "30 pcs",
+          price: 21.9,
+          unitPrice: 0.73,
+          rating: 4.6,
+          reviews: 341,
+        },
+        {
+          title: "Saha White Eggs Medium 15 pcs",
+          size: "15 pcs",
+          price: 9.9,
+          unitPrice: 0.66,
+          was: 11.5,
+          delivery: "55m",
+        },
+        {
+          title: "Golden Farm Fresh Eggs 12 pcs",
+          size: "12 pcs",
+          price: 8.5,
+          unitPrice: 0.71,
+          delivery: "90m",
+        },
+        {
+          title: "Al Ain Fresh Eggs 6 pcs",
+          size: "6 pcs",
+          price: 4.75,
+          unitPrice: 0.79,
+          delivery: "25m",
+        },
+      ] as const satisfies readonly Offer[],
       bestIndex: 1,
     },
     {
@@ -178,11 +296,37 @@ export const demo = {
       unit: "kilo",
       unitShort: "kg",
       offers: [
-        { size: "1kg", price: 34.5, unitPrice: 34.5 },
-        { size: "500g", price: 18.9, unitPrice: 37.8 },
-        { size: "1kg", price: 35.75, unitPrice: 35.75 },
-        { size: "900g", price: 29.9, unitPrice: 33.22 },
-      ],
+        {
+          title: "Seara Chicken Breast Fillet 1kg",
+          size: "1kg",
+          price: 34.5,
+          unitPrice: 34.5,
+          rating: 4.2,
+          reviews: 156,
+        },
+        {
+          title: "Sadia Chicken Breast 500g",
+          size: "500g",
+          price: 18.9,
+          unitPrice: 37.8,
+          delivery: "60m",
+        },
+        {
+          title: "Chicken Breast Boneless 1kg",
+          size: "1kg",
+          price: 35.75,
+          unitPrice: 35.75,
+          delivery: "90m",
+        },
+        {
+          title: "Fresh Chicken Breast 900g",
+          size: "900g",
+          price: 29.9,
+          unitPrice: 33.22,
+          was: 32.5,
+          delivery: "35m",
+        },
+      ] as const satisfies readonly Offer[],
       bestIndex: 3,
     },
   ],
