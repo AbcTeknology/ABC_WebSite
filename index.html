@@ -144,6 +144,7 @@ body {
   margin: 0 auto;
 }
 .product-card:hover { border-color: var(--border-accent); }
+.product-card-link { display: block; text-decoration: none; color: inherit; }
 
 .product-card-icon {
   width: 80px; height: 80px; border-radius: 20px;
@@ -354,14 +355,16 @@ body {
   <h2>AI tools for everyday moments.</h2>
   <p>We're building a suite of AI products, each designed to simplify something that shouldn't be complicated.</p>
 
-  <div class="product-card">
-    <div class="product-card-icon">🛒</div>
-    <div class="product-card-content">
-      <h3>ABC Shopping AI</h3>
-      <p>Send your shopping list, and AI finds the lowest prices across the most reliable online stores, instantly. Smart swap suggestions, background processing, and full Arabic support built in.</p>
-      <span class="product-badge">Product 01: Coming soon</span>
+  <a href="product.html" class="product-card-link">
+    <div class="product-card">
+      <div class="product-card-icon">🛒</div>
+      <div class="product-card-content">
+        <h3>ABC Shopping AI</h3>
+        <p>Send your shopping list, and AI finds the lowest prices across the most reliable online stores, instantly. Smart swap suggestions, background processing, and full Arabic support built in.</p>
+        <span class="product-badge">Product 01: Coming soon</span>
+      </div>
     </div>
-  </div>
+  </a>
 
   <div class="product-card-soon">
     <div class="product-card-icon">✨</div>
