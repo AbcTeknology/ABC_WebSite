@@ -1,0 +1,29 @@
+# ABC Teknology
+
+> ABC Teknology builds AI tools that solve everyday problems. Its first product, ABC Shopping AI, is a free mobile app for the UAE: you send your shopping list in English or Arabic, and the AI compares prices across reliable online stores, builds your best-value basket and suggests smarter pack sizes.
+
+ABC Shopping AI is available free on Android and iOS, with no subscriptions or hidden fees. It compares prices and helps you decide; purchases are completed directly with the retailer you choose. Prices and availability can change, so always confirm the final price on the retailer's own page. As an Amazon Associate, ABC Teknology earns from qualifying purchases made through Amazon links in the app.
+
+## Product
+
+- [ABC Shopping AI](https://abcteknology.com/product.html): what the app does, how it works, and download links
+- [Android app on Google Play](https://play.google.com/store/apps/details?id=com.abcteknology.abcai): free download
+- [iOS app on the App Store](https://apps.apple.com/app/id6768329876): free download
+
+## Key features
+
+- Send a full shopping list in one message, in everyday English or Arabic (including Gulf dialect); typos are understood
+- Searches several reliable UAE online stores at once and shows price, unit price, delivery time and deals together
+- Builds a best-value basket, taking each item from the store where it is cheapest, with multi-buy offers counted in the real price
+- Smart swap: suggests a larger pack or different brand when it saves more per unit, and shows the saving before you decide
+- Edit the basket by chatting ("remove the rice, add eggs"); works in the background and notifies you when the basket is ready
+
+## Company
+
+- [ABC Teknology](https://abcteknology.com/): company overview and contact
+- Contact: dev@abcteknology.com, +971 50 208 7130
+
+## Legal
+
+- [Privacy Policy](https://abcteknology.com/privacy.html)
+- [Account and data deletion](https://abcteknology.com/data-deletion.html)
